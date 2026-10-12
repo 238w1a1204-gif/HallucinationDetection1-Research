@@ -190,7 +190,7 @@ def determine_verdict(
         )
 
     # ── Rule 1: NLI contradiction ─────────────────────────────────────────
-    if contradiction_detected:
+    if contradiction_detected and rel_check.relationship_discussed :
         reasons.append(
             f"NLI model classified primary evidence as '{nli_label}'."
         )

@@ -13,3 +13,4 @@ torch==2.4.1
 scikit-learn==1.5.2
 pytest==8.3.3
 pytest-mock==3.14.0
+google-genai==2.29.0

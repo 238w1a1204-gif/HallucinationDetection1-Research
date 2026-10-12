@@ -1,0 +1,78 @@
+{
+  "run_timestamp_utc": "2026-10-11T18:21:24.545172+00:00",
+  "input_file": "/Users/aluvalapranati/HallucinationDetection1/benchmark/claims.csv",
+  "output_file": "/Users/aluvalapranati/HallucinationDetection1/benchmark/baseline_results.csv",
+  "python_version": "3.11.16",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "configured_llm_provider": "gemini",
+  "embedding_model_config": {
+    "SENTENCE_TRANSFORMER_MODEL": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "nli_model_config": {
+    "NLI_MODEL": "facebook/bart-large-mnli"
+  },
+  "dataset_rows": 40,
+  "successful_rows": 40,
+  "failed_rows": 0,
+  "metrics": {
+    "evaluated": 40,
+    "accuracy": 0.6,
+    "macro_f1": 0.4622,
+    "per_class": {
+      "VERIFIED": {
+        "precision": 0.8,
+        "recall": 0.4,
+        "f1": 0.5333,
+        "support": 10
+      },
+      "PARTIALLY_SUPPORTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "UNSUPPORTED": {
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714,
+        "support": 10
+      },
+      "CONTRADICTED": {
+        "precision": 0.6957,
+        "recall": 0.8,
+        "f1": 0.7442,
+        "support": 20
+      }
+    },
+    "confusion_matrix_rows_gold_columns_predicted": {
+      "VERIFIED": {
+        "VERIFIED": 4,
+        "PARTIALLY_SUPPORTED": 3,
+        "UNSUPPORTED": 0,
+        "CONTRADICTED": 3
+      },
+      "PARTIALLY_SUPPORTED": {
+        "VERIFIED": 0,
+        "PARTIALLY_SUPPORTED": 0,
+        "UNSUPPORTED": 0,
+        "CONTRADICTED": 0
+      },
+      "UNSUPPORTED": {
+        "VERIFIED": 0,
+        "PARTIALLY_SUPPORTED": 2,
+        "UNSUPPORTED": 4,
+        "CONTRADICTED": 4
+      },
+      "CONTRADICTED": {
+        "VERIFIED": 1,
+        "PARTIALLY_SUPPORTED": 3,
+        "UNSUPPORTED": 0,
+        "CONTRADICTED": 16
+      }
+    },
+    "gold_unsupported_predicted_verified_count": 0,
+    "gold_unsupported_predicted_verified_rate": 0.0,
+    "note": "UNSUPPORTED means the supplied evidence is insufficient; it does not necessarily mean the claim is false."
+  },
+  "method_note": "Fixed evidence packets; no LLM generation or live retrieval. Preserve output CSV and metrics JSON for every run."
+}

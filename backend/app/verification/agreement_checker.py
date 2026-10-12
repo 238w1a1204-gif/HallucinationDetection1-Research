@@ -54,5 +54,12 @@ def count_agreeing_sources(
             ep = _ep_score(claim, item.evidence_text)
             if ep < _MIN_ENTITY_PRESENCE_FOR_AGREEMENT:
                 continue   # evidence doesn't mention any claim entity — skip
-        agreeing_sources.add(item.source_name)
+
+        source_identity = (
+            item.source_url.rstrip("/").split("?")[0].lower()
+            if item.source_url
+            else item.source_name
+        )
+        agreeing_sources.add(source_identity)
+
     return len(agreeing_sources)

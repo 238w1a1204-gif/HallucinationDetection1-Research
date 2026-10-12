@@ -17,6 +17,7 @@ import pytest
 from unittest.mock import patch
 
 from app.verification.similarity_scorer import ScoredEvidence
+from app.verification.agreement_checker import count_agreeing_sources
 from app.verification.verdict_engine import (
     determine_verdict,
     VERDICT_VERIFIED,
@@ -282,3 +283,43 @@ class TestPartiallySupportedKept:
         # (it may appear in the note, so we check the body before the note)
         body = corrected.split("[Corrections applied]")[0]
         assert "john mccarthy was the ceo" not in body.lower()
+
+# ── Duplicate source URL regression tests ────────────────────────────────────
+
+class TestSourceDeduplication:
+
+    def test_same_url_from_different_providers_counts_once(self):
+        evidence = [
+            ScoredEvidence(
+                evidence_text="Paris is the capital of France.",
+                source_name="wikipedia",
+                source_url="https://en.wikipedia.org/wiki/France",
+                similarity=0.80,
+            ),
+            ScoredEvidence(
+                evidence_text="Paris is the capital of France.",
+                source_name="duckduckgo",
+                source_url="https://en.wikipedia.org/wiki/France",
+                similarity=0.75,
+            ),
+        ]
+
+        assert count_agreeing_sources(evidence) == 1
+
+    def test_distinct_urls_count_as_two_sources(self):
+        evidence = [
+            ScoredEvidence(
+                evidence_text="Paris is the capital of France.",
+                source_name="wikipedia",
+                source_url="https://en.wikipedia.org/wiki/France",
+                similarity=0.80,
+            ),
+            ScoredEvidence(
+                evidence_text="Paris is the capital of France.",
+                source_name="wikidata",
+                source_url="https://www.wikidata.org/wiki/Q142",
+                similarity=0.75,
+            ),
+        ]
+
+        assert count_agreeing_sources(evidence) == 2
