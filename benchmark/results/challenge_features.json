@@ -51,8 +51,8 @@
   "n_evidence": 2,
   "max_sim": 0.9806085824966431,
   "agree": 2,
-  "ent_mismatch": true,
-  "ent_presence": 0.75,
+  "ent_mismatch": false,
+  "ent_presence": 1.0,
   "rel_ok": true,
   "nli_primary": "neutral",
   "nli_all": [
@@ -60,10 +60,10 @@
    "neutral"
   ],
   "av": "VALUE_SUPPORTED",
-  "primary_quality": 0.6142,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.6599,
-  "explanation": "Best similarity: 0.98 (from 'Nobel Prize'). Primary evidence quality 0.61 (subject_presence=0.0) from 'Nobel Prize'. 2 of up to 3 sources provide supporting evidence. Entity presence: 0.75. Answer-value: Answer token(s) ['albert', 'einstein', 'was', 'born', 'ulm', '1879'] found in evidence. Relationship 'birth' found in evidence. Claim refers to person(s) ['albert einstein'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "primary_quality": 0.6642,
+  "engine_verdict": "VERIFIED",
+  "engine_conf": 0.9099,
+  "explanation": "Best similarity: 0.98 (from 'Nobel Prize'). Primary evidence quality 0.66 (subject_presence=0.0) from 'Nobel Prize'. 2 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Answer token(s) ['albert', 'einstein', 'was', 'born', 'ulm', '1879'] found in evidence. Relationship 'birth' found in evidence. Strong similarity, multi-source agreement, relationship discussed."
  },
  {
   "id": "B004",
@@ -139,8 +139,8 @@
   "n_evidence": 2,
   "max_sim": 0.7639459371566772,
   "agree": 2,
-  "ent_mismatch": true,
-  "ent_presence": 0.6667,
+  "ent_mismatch": false,
+  "ent_presence": 1.0,
   "rel_ok": true,
   "nli_primary": "entailment",
   "nli_all": [
@@ -148,10 +148,10 @@
    "entailment"
   ],
   "av": "VALUE_SUPPORTED",
-  "primary_quality": 0.8325,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.5674,
-  "explanation": "Best similarity: 0.76 (from 'NASA Earth Facts'). Primary evidence quality 0.83 (subject_presence=1.0) from 'NASA Earth Facts'. 2 of up to 3 sources provide supporting evidence. Entity presence: 0.67. Answer-value: Number '365.25' found in evidence. Claim refers to organization(s) ['sun'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "primary_quality": 0.8992,
+  "engine_verdict": "VERIFIED",
+  "engine_conf": 0.834,
+  "explanation": "Best similarity: 0.76 (from 'NASA Earth Facts'). Primary evidence quality 0.90 (subject_presence=1.0) from 'NASA Earth Facts'. 2 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Number '365.25' found in evidence. Strong similarity, multi-source agreement, relationship discussed."
  },
  {
   "id": "B008",
@@ -183,7 +183,7 @@
   "n_evidence": 2,
   "max_sim": 0.9802618622779846,
   "agree": 2,
-  "ent_mismatch": true,
+  "ent_mismatch": false,
   "ent_presence": 1.0,
   "rel_ok": true,
   "nli_primary": "neutral",
@@ -193,9 +193,9 @@
   ],
   "av": "VALUE_UNVERIFIABLE",
   "primary_quality": 0.6641,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.7098,
-  "explanation": "Best similarity: 0.98 (from 'Nobel Prize'). Primary evidence quality 0.66 (subject_presence=0.0) from 'Nobel Prize'. 2 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Could not extract person values from evidence to compare. Relationship 'discovery' found in evidence. Claim refers to person(s) ['alexander fleming'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "engine_verdict": "VERIFIED",
+  "engine_conf": 0.9098,
+  "explanation": "Best similarity: 0.98 (from 'Nobel Prize'). Primary evidence quality 0.66 (subject_presence=0.0) from 'Nobel Prize'. 2 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Could not extract person values from evidence to compare. Relationship 'discovery' found in evidence. Strong similarity, multi-source agreement, relationship discussed."
  },
  {
   "id": "B010",
@@ -248,9 +248,9 @@
   "claim": "Albert Einstein was born in Berlin.",
   "n_evidence": 2,
   "max_sim": 0.8106813430786133,
-  "agree": 0,
-  "ent_mismatch": true,
-  "ent_presence": 0.0,
+  "agree": 1,
+  "ent_mismatch": false,
+  "ent_presence": 0.5,
   "rel_ok": true,
   "nli_primary": "contradiction",
   "nli_all": [
@@ -258,10 +258,10 @@
    "neutral"
   ],
   "av": "VALUE_SUPPORTED",
-  "primary_quality": 0.4132,
+  "primary_quality": 0.5132,
   "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.2837,
-  "explanation": "Best similarity: 0.81 (from 'Nobel Prize'). Primary evidence quality 0.41 (subject_presence=0.0) from 'Nobel Prize'. 0 of up to 3 sources provide supporting evidence. Entity presence: 0.00. Answer-value: Answer token(s) ['albert', 'einstein', 'was', 'born', 'berlin'] found in evidence. Relationship 'birth' found in evidence. NLI model classified primary evidence as 'contradiction'."
+  "engine_conf": 0.4671,
+  "explanation": "Best similarity: 0.81 (from 'Nobel Prize'). Primary evidence quality 0.51 (subject_presence=0.0) from 'Nobel Prize'. 1 of up to 3 sources provide supporting evidence. Entity presence: 0.50. Answer-value: Answer token(s) ['albert', 'einstein', 'was', 'born', 'berlin'] found in evidence. Relationship 'birth' found in evidence. NLI model classified primary evidence as 'contradiction'."
  },
  {
   "id": "B013",
@@ -336,9 +336,9 @@
   "claim": "Earth takes 200 days to orbit the Sun.",
   "n_evidence": 2,
   "max_sim": 0.6571823358535767,
-  "agree": 1,
-  "ent_mismatch": true,
-  "ent_presence": 0.3333,
+  "agree": 2,
+  "ent_mismatch": false,
+  "ent_presence": 1.0,
   "rel_ok": true,
   "nli_primary": "entailment",
   "nli_all": [
@@ -346,10 +346,10 @@
    "neutral"
   ],
   "av": "VALUE_UNVERIFIABLE",
-  "primary_quality": 0.7338,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.38,
-  "explanation": "Best similarity: 0.66 (from 'NASA Earth Facts'). Primary evidence quality 0.73 (subject_presence=1.0) from 'NASA Earth Facts'. 1 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Numeric value(s) ['200'] not found in evidence. Claim refers to organization(s) ['sun'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "primary_quality": 0.8672,
+  "engine_verdict": "PARTIALLY_SUPPORTED",
+  "engine_conf": 0.7967,
+  "explanation": "Best similarity: 0.66 (from 'NASA Earth Facts'). Primary evidence quality 0.87 (subject_presence=1.0) from 'NASA Earth Facts'. 2 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Numeric value(s) ['200'] not found in evidence. Medium similarity; related but not strongly matched."
  },
  {
   "id": "B017",
@@ -381,7 +381,7 @@
   "n_evidence": 2,
   "max_sim": 0.8296767473220825,
   "agree": 2,
-  "ent_mismatch": true,
+  "ent_mismatch": false,
   "ent_presence": 0.3333,
   "rel_ok": true,
   "nli_primary": "neutral",
@@ -391,9 +391,9 @@
   ],
   "av": "VALUE_UNVERIFIABLE",
   "primary_quality": 0.4856,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.5237,
-  "explanation": "Best similarity: 0.83 (from 'Nobel Prize facts'). Primary evidence quality 0.49 (subject_presence=0.0) from 'Nobel Prize facts'. 2 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Could not match date value between answer and evidence. Relationship 'discovery' found in evidence. Claim refers to person(s) ['alexander fleming'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "engine_verdict": "VERIFIED",
+  "engine_conf": 0.7237,
+  "explanation": "Best similarity: 0.83 (from 'Nobel Prize facts'). Primary evidence quality 0.49 (subject_presence=0.0) from 'Nobel Prize facts'. 2 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Could not match date value between answer and evidence. Relationship 'discovery' found in evidence. Strong similarity, multi-source agreement, relationship discussed."
  },
  {
   "id": "B019",
@@ -447,7 +447,7 @@
   "n_evidence": 2,
   "max_sim": 0.6639894247055054,
   "agree": 0,
-  "ent_mismatch": true,
+  "ent_mismatch": false,
   "ent_presence": 1.0,
   "rel_ok": false,
   "nli_primary": "contradiction",
@@ -457,9 +457,9 @@
   ],
   "av": "VALUE_UNVERIFIABLE",
   "primary_quality": 0.4249,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.4324,
-  "explanation": "Best similarity: 0.66 (from 'Nobel Prize'). Primary evidence quality 0.42 (subject_presence=0.0) from 'Nobel Prize Curie facts'. 0 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Could not extract person values from evidence to compare. Claim asserts ['discovered'] relationship but evidence contains no matching relationship keywords. Claim refers to person(s) ['marie curie'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "engine_verdict": "PARTIALLY_SUPPORTED",
+  "engine_conf": 0.6324,
+  "explanation": "Best similarity: 0.66 (from 'Nobel Prize'). Primary evidence quality 0.42 (subject_presence=0.0) from 'Nobel Prize Curie facts'. 0 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Could not extract person values from evidence to compare. Claim asserts ['discovered'] relationship but evidence contains no matching relationship keywords. Medium similarity; related but not strongly matched."
  },
  {
   "id": "B022",
@@ -556,9 +556,9 @@
   "claim": "Pierre Curie received the 1911 Nobel Prize in Chemistry.",
   "n_evidence": 2,
   "max_sim": 0.827398419380188,
-  "agree": 1,
-  "ent_mismatch": true,
-  "ent_presence": 0.6667,
+  "agree": 2,
+  "ent_mismatch": false,
+  "ent_presence": 1.0,
   "rel_ok": true,
   "nli_primary": "contradiction",
   "nli_all": [
@@ -566,10 +566,10 @@
    "contradiction"
   ],
   "av": "VALUE_CONTRADICTED",
-  "primary_quality": 0.5516,
+  "primary_quality": 0.6182,
   "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.5063,
-  "explanation": "Best similarity: 0.83 (from 'Nobel Prize summary'). Primary evidence quality 0.55 (subject_presence=0.0) from 'Nobel Prize summary'. 1 of up to 3 sources provide supporting evidence. Entity presence: 0.67. Answer-value: Answer person 'pierre curie received the 1911 nobel prize in chemistry.' not found in evidence. Evidence mentions: ['marie curie']. Relationship 'award' found in evidence. Answer value directly contradicts the value stated in evidence for the requested relationship."
+  "engine_conf": 0.6563,
+  "explanation": "Best similarity: 0.83 (from 'Nobel Prize summary'). Primary evidence quality 0.62 (subject_presence=0.0) from 'Nobel Prize summary'. 2 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Answer person 'pierre curie received the 1911 nobel prize in chemistry.' not found in evidence. Evidence mentions: ['marie curie']. Relationship 'award' found in evidence. Answer value directly contradicts the value stated in evidence for the requested relationship."
  },
  {
   "id": "B027",
@@ -601,7 +601,7 @@
   "n_evidence": 2,
   "max_sim": 0.6081128120422363,
   "agree": 1,
-  "ent_mismatch": true,
+  "ent_mismatch": false,
   "ent_presence": 1.0,
   "rel_ok": false,
   "nli_primary": "contradiction",
@@ -611,9 +611,9 @@
   ],
   "av": "VALUE_UNVERIFIABLE",
   "primary_quality": 0.4524,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.4962,
-  "explanation": "Best similarity: 0.61 (from 'Nobel Prize facts'). Primary evidence quality 0.45 (subject_presence=0.0) from 'Nobel Prize facts'. 1 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Could not confirm or contradict 'alexander fleming received the nobel prize for discovering radium.' from evidence (no structured extractor for this answer type). Claim asserts ['nobel prize', 'prize', 'received'] relationship but evidence contains no matching relationship keywords. Claim refers to person(s) ['alexander fleming'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "engine_verdict": "PARTIALLY_SUPPORTED",
+  "engine_conf": 0.6962,
+  "explanation": "Best similarity: 0.61 (from 'Nobel Prize facts'). Primary evidence quality 0.45 (subject_presence=0.0) from 'Nobel Prize facts'. 1 of up to 3 sources provide supporting evidence. Entity presence: 1.00. Answer-value: Could not confirm or contradict 'alexander fleming received the nobel prize for discovering radium.' from evidence (no structured extractor for this answer type). Claim asserts ['nobel prize', 'prize', 'received'] relationship but evidence contains no matching relationship keywords. Medium similarity; related but not strongly matched."
  },
  {
   "id": "B029",
@@ -711,8 +711,8 @@
   "n_evidence": 2,
   "max_sim": 0.4597765803337097,
   "agree": 0,
-  "ent_mismatch": true,
-  "ent_presence": 0.0,
+  "ent_mismatch": false,
+  "ent_presence": 0.3333,
   "rel_ok": true,
   "nli_primary": "neutral",
   "nli_all": [
@@ -720,10 +720,10 @@
    "neutral"
   ],
   "av": "VALUE_UNVERIFIABLE",
-  "primary_quality": 0.3079,
+  "primary_quality": 0.3746,
   "engine_verdict": "UNSUPPORTED",
-  "engine_conf": 0.1609,
-  "explanation": "Best similarity: 0.46 (from 'Nobel Prize'). Primary evidence quality 0.31 (subject_presence=0.0) from 'Nobel Prize'. 0 of up to 3 sources provide supporting evidence. Entity presence: 0.00. Answer-value: Could not confirm or contradict 'albert einstein ate lentil soup at lunch on 10 june 1905.' from evidence (no structured extractor for this answer type). Claim refers to person(s) ['albert einstein'] which could not be found in the evidence."
+  "engine_conf": 0.4276,
+  "explanation": "Best similarity: 0.46 (from 'Nobel Prize'). Primary evidence quality 0.37 (subject_presence=0.0) from 'Nobel Prize'. 0 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Could not confirm or contradict 'albert einstein ate lentil soup at lunch on 10 june 1905.' from evidence (no structured extractor for this answer type). Similarity too low to consider claim supported."
  },
  {
   "id": "B034",
@@ -733,7 +733,7 @@
   "n_evidence": 2,
   "max_sim": 0.4366788864135742,
   "agree": 0,
-  "ent_mismatch": true,
+  "ent_mismatch": false,
   "ent_presence": 0.3333,
   "rel_ok": true,
   "nli_primary": "contradiction",
@@ -798,9 +798,9 @@
   "claim": "Albert Einstein wrote exactly 1,206 words in his private notebook on 8 April 1905.",
   "n_evidence": 2,
   "max_sim": 0.6751104593276978,
-  "agree": 0,
-  "ent_mismatch": true,
-  "ent_presence": 0.0,
+  "agree": 2,
+  "ent_mismatch": false,
+  "ent_presence": 0.3333,
   "rel_ok": false,
   "nli_primary": "contradiction",
   "nli_all": [
@@ -808,10 +808,10 @@
    "neutral"
   ],
   "av": "VALUE_UNVERIFIABLE",
-  "primary_quality": 0.2725,
-  "engine_verdict": "CONTRADICTED",
-  "engine_conf": 0.2363,
-  "explanation": "Best similarity: 0.68 (from 'Nobel Prize'). Primary evidence quality 0.27 (subject_presence=0.0) from 'Nobel Prize'. 0 of up to 3 sources provide supporting evidence. Entity presence: 0.00. Answer-value: Numeric value(s) ['1,206', '8', '1905.'] not found in evidence. Claim asserts ['wrote'] relationship but evidence contains no matching relationship keywords. Claim refers to person(s) ['albert einstein'] which could not be found in the evidence. Evidence semantically related but key entity in claim does not match."
+  "primary_quality": 0.3392,
+  "engine_verdict": "PARTIALLY_SUPPORTED",
+  "engine_conf": 0.6696,
+  "explanation": "Best similarity: 0.68 (from 'Nobel Prize'). Primary evidence quality 0.34 (subject_presence=0.0) from 'Nobel Prize'. 2 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Numeric value(s) ['1,206', '8', '1905.'] not found in evidence. Claim asserts ['wrote'] relationship but evidence contains no matching relationship keywords. Medium similarity; related but not strongly matched."
  },
  {
   "id": "B038",
@@ -843,7 +843,7 @@
   "n_evidence": 2,
   "max_sim": 0.420926034450531,
   "agree": 0,
-  "ent_mismatch": true,
+  "ent_mismatch": false,
   "ent_presence": 0.3333,
   "rel_ok": true,
   "nli_primary": "neutral",
@@ -854,8 +854,8 @@
   "av": "VALUE_UNVERIFIABLE",
   "primary_quality": 0.3629,
   "engine_verdict": "UNSUPPORTED",
-  "engine_conf": 0.214,
-  "explanation": "Best similarity: 0.42 (from 'Nobel Prize biography'). Primary evidence quality 0.36 (subject_presence=0.0) from 'Nobel Prize biography'. 0 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Numeric value(s) ['316', '6', '1911.'] not found in evidence. Claim refers to person(s) ['marie curie'] which could not be found in the evidence."
+  "engine_conf": 0.414,
+  "explanation": "Best similarity: 0.42 (from 'Nobel Prize biography'). Primary evidence quality 0.36 (subject_presence=0.0) from 'Nobel Prize biography'. 0 of up to 3 sources provide supporting evidence. Entity presence: 0.33. Answer-value: Numeric value(s) ['316', '6', '1911.'] not found in evidence. Similarity too low to consider claim supported."
  },
  {
   "id": "B040",

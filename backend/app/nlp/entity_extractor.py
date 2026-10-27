@@ -37,6 +37,9 @@ def extract_entities(text: str) -> ExtractedEntities:
         value = ent.text.strip().lower()
         if not value:
             continue
+        if (ent.label_ == "ORG" and len(ent) == 1 and ent.start > 0
+                and ent.doc[ent.start - 1].lower_ == "the"):
+            continue
         if ent.label_ == "PERSON":
             result.people.add(value)
         elif ent.label_ == "ORG":

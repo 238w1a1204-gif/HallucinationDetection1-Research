@@ -309,17 +309,24 @@ def extract_role_keywords(text: str) -> set[str]:
 
 # ── Internal helpers ─────────────────────────────────────────────────────────
 
-def _entity_in_text(entity: str, ner_set: set[str], text_lower: str) -> bool:
-    """Return True if *entity* is found either as a direct substring of the
-    lowercased evidence text, or via fuzzy NER set membership.
+_GENERIC_TOKENS = {"university", "college", "institute", "company", "corporation",
+                   "limited", "group", "national", "united", "states", "school",
+                   "association", "foundation"}
 
-    The raw-text substring check is the primary signal because NER
-    sometimes mis-tags or misses short entity mentions.
-    """
-    entity_l = entity.lower()
+def _entity_in_text(entity: str, ner_set: set[str], text_lower: str) -> bool:
+    entity_l = entity.lower().strip()
     if entity_l in text_lower:
         return True
-    return _fuzzy_contains(entity_l, ner_set)
+    if _fuzzy_contains(entity_l, ner_set):
+        return True
+    # surname / last-token fallback for multi-word names
+    tokens = re.findall(r"[a-z0-9\u00c0-\u024f'’\-]+", entity_l)
+    if len(tokens) >= 2:
+        last = tokens[-1]
+        if (last.isalpha() and len(last) >= 4 and last not in _GENERIC_TOKENS
+                and re.search(r"\b" + re.escape(last) + r"\b", text_lower)):
+            return True
+    return False
 
 
 def _fuzzy_contains(needle: str, haystack: set[str]) -> bool:

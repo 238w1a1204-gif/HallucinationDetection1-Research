@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Ablation on vc_dev (frozen evidence).}
+\label{tab:ablation_vc_dev}
+\small
+\begin{tabular}{lccc}
+\hline
+Configuration & Acc [95\\% CI] & Macro-F1 & False-VER \\
+\hline
+Sim+Agreement & 0.249 [0.21,0.29] & 0.267 & 0.206 \\
+NLI only & 0.543 [0.50,0.59] & 0.542 & 0.108 \\
+Sim+NLI & 0.392 [0.35,0.44] & 0.438 & 0.098 \\
+Sim+NLI+Entity & 0.410 [0.37,0.46] & 0.423 & 0.088 \\
+Sim+NLI+Entity+Rel & 0.405 [0.36,0.45] & 0.422 & 0.078 \\
+Full (+AnswerValue) & 0.405 [0.36,0.45] & 0.422 & 0.078 \\
+Engine (determine\_verdict) & 0.405 [0.36,0.45] & 0.422 & 0.078 \\
+\hline
+\end{tabular}
+\end{table}
