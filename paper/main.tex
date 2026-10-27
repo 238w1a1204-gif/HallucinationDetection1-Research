@@ -1,0 +1,76 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx,booktabs,amsmath,hyperref}
+\begin{document}
+
+\title{Interpretable Multi-Signal Claim Verification for Detecting Hallucinations in LLM Answers: A Frozen-Evidence Study}
+\author{\IEEEauthorblockN{Your Name}
+\IEEEauthorblockA{Department, College\\ City, Country\\ email@example.com}}
+\maketitle
+
+\begin{abstract}
+LLMs produce fluent but unsupported statements. We present a lightweight, fully local, interpretable
+pipeline that decomposes answers into claims and assigns one of four verdicts (Verified, Partially
+Supported, Unsupported, Contradicted) using subject-centred retrieval, evidence-quality ranking,
+answer-value checking, entity/relationship checks and NLI. Using a frozen-evidence protocol that
+isolates verification from retrieval and generation, we report ablations, baselines, confidence
+analysis and a failure taxonomy on a hand-built challenge set and a VitaminC-derived benchmark.
+\textbf{[Insert 1--2 headline numbers with CIs.]}
+\end{abstract}
+
+\begin{IEEEkeywords}
+hallucination detection, fact verification, natural language inference, evidence retrieval
+\end{IEEEkeywords}
+
+\section{Introduction}
+Motivation; the wrong-entity retrieval failure (e.g., a birthplace claim ``verified'' by the article
+about the claimed city); contributions: (1) subject-centred retrieval with a subject-presence guard,
+(2) four-way verdicts with explicit insufficient-evidence semantics and a false-VERIFIED safety metric,
+(3) a frozen-evidence evaluation protocol, (4) ablations, confidence analysis and a failure taxonomy.
+
+\section{Related Work}
+FEVER \cite{fever}, VitaminC \cite{vitaminc}, NLI-based verification \cite{mnli,bart},
+sentence embeddings \cite{sbert}, hallucination detection \cite{selfcheck}.
+
+\section{Method}
+Pipeline figure; question analysis; subject-centred queries; quality score
+$q = 0.30\,s + 0.30\,u + 0.20\,e + 0.10\,r + 0.10\,w$; verdict rules 0--7 (table);
+heuristic confidence $0.35\,s+0.25\,a+0.20\,c+0.20\,e$ (uncalibrated by design).
+
+\section{Experimental Setup}
+Datasets: challenge set (40 hand-built claims), VitaminC subset (dev/test, grouped split by claim).
+Protocol: frozen evidence; thresholds tuned on dev only; test evaluated once.
+Metrics: accuracy, macro-F1 over populated classes, false-VERIFIED rate, bootstrap 95\% CIs (1000 resamples).
+Baselines: similarity+agreement, NLI only (bart-large-mnli), Gemini judge, logistic-regression combiner.
+
+\section{Results}
+\input{../benchmark/results/vc_test_ablation.tex}
+\textbf{Main result / ablation} -- discuss each added component's contribution.
+
+\input{../benchmark/results/challenge_ablation.tex}
+\textbf{Challenge set} -- confusion matrix and safety metric.
+
+\textbf{Confidence analysis} -- AUROC, ECE, reliability (Fig.~\ref{fig:rel}).
+\begin{figure}[t]\centering
+\includegraphics[width=0.8\columnwidth]{../benchmark/results/conf_reliability.png}
+\caption{Reliability diagram of the heuristic confidence.}\label{fig:rel}
+\end{figure}
+
+\input{../benchmark/results/challenge_errors.tex}
+\textbf{Error analysis} -- 3--4 concrete examples per category.
+
+\section{Limitations}
+Small scale; single-evidence VitaminC; heuristic thresholds; spaCy NER dependence; English/Wikipedia only;
+challenge-set entities overlap with development entities.
+
+\section{Conclusion}
+Summary and future work (learned verifier, larger multi-evidence benchmarks, live-retrieval evaluation).
+
+\begin{thebibliography}{9}
+\bibitem{fever} J. Thorne et al., ``FEVER: a large-scale dataset for fact extraction and verification,'' in \emph{NAACL}, 2018.
+\bibitem{vitaminc} T. Schuster, A. Fisch, R. Barzilay, ``Get your Vitamin C! Robust fact verification with contrastive evidence,'' in \emph{NAACL}, 2021.
+\bibitem{mnli} A. Williams, N. Nangia, S. Bowman, ``A broad-coverage challenge corpus for sentence understanding through inference,'' in \emph{NAACL}, 2018.
+\bibitem{bart} M. Lewis et al., ``BART: denoising sequence-to-sequence pre-training,'' in \emph{ACL}, 2020.
+\bibitem{sbert} N. Reimers, I. Gurevych, ``Sentence-BERT: sentence embeddings using Siamese BERT-networks,'' in \emph{EMNLP-IJCNLP}, 2019.
+\bibitem{selfcheck} P. Manakul, A. Liusie, M. Gales, ``SelfCheckGPT: zero-resource black-box hallucination detection,'' in \emph{EMNLP}, 2023.
+\end{thebibliography}
+\end{document}

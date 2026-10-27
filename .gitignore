@@ -47,3 +47,4 @@ Thumbs.db
 
 # Python distribution
 *.egg-info/
+benchmark/cache/
