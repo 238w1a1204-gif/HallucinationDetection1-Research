@@ -60,7 +60,19 @@ class NLICache:
                 raise RuntimeError(f"NLI model unavailable ({lab}); check transformers/torch install.")
             self.data[k] = lab
         return self.data[k]
-
+    def scores(self, claim, evidence):
+        """Full NLI probability dict {entailment, neutral, contradiction} (cached)."""
+        k = self._key(claim, evidence) + "|p"
+        if k not in self.data:
+            from app.verification.contradiction_detector import _get_nli_pipeline
+            pipe = _get_nli_pipeline()
+            if pipe is None:
+                raise RuntimeError("NLI model unavailable")
+            res = pipe({"text": evidence, "text_pair": claim})
+            if isinstance(res, list) and res and isinstance(res[0], list):
+                res = res[0]
+            self.data[k] = {r["label"].lower(): float(r["score"]) for r in res}
+        return self.data[k]
     def save(self):
         self.path.write_text(json.dumps(self.data))
 
@@ -87,7 +99,7 @@ def extract_features(row, nli: NLICache) -> dict:
     f = {"id": row.get("id"), "category": row.get("category", ""),
          "gold": row.get("gold_verdict"), "claim": claim, "n_evidence": len(scored),
          "max_sim": 0.0, "agree": 0, "ent_mismatch": False, "ent_presence": 0.0,
-         "rel_ok": False, "nli_primary": "none", "nli_all": [], "av": "VALUE_UNVERIFIABLE",
+         "rel_ok": False, "nli_primary": "none","nli_all": [], "nli_probs_all": [], "av" : "VALUE_UNVERIFIABLE",
          "primary_quality": 0.0}
 
     if scored:
@@ -111,6 +123,7 @@ def extract_features(row, nli: NLICache) -> dict:
             "rel_ok": bool(rel.relationship_discussed),
             "nli_primary": nli.label(claim, primary.evidence_text),
             "nli_all": [nli.label(claim, s.evidence_text) for s in scored],
+            "nli_probs_all": [nli.scores(claim, s.evidence_text) for s in scored],
             "av": av,
             "primary_quality": float(primary.quality_score),
         })
