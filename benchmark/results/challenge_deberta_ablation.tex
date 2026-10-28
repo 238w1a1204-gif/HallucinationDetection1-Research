@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Ablation on challenge_deberta (frozen evidence).}
+\label{tab:ablation_challenge_deberta}
+\small
+\begin{tabular}{lccc}
+\hline
+Configuration & Acc [95\\% CI] & Macro-F1 & False-VER \\
+\hline
+Sim+Agreement & 0.375 [0.23,0.53] & 0.506 & 0.167 \\
+NLI only & 0.800 [0.68,0.93] & 0.722 & 0.000 \\
+Sim+NLI & 0.725 [0.57,0.85] & 0.693 & 0.067 \\
+Sim+NLI+Entity & 0.725 [0.57,0.85] & 0.693 & 0.067 \\
+Sim+NLI+Entity+Rel & 0.625 [0.47,0.78] & 0.649 & 0.067 \\
+Full (+AnswerValue) & 0.625 [0.47,0.78] & 0.649 & 0.067 \\
+NLI-gated (+AV) & 0.800 [0.68,0.93] & 0.722 & 0.000 \\
+NLI-gated +Entity & 0.800 [0.68,0.93] & 0.722 & 0.000 \\
+Engine (determine\_verdict) & 0.625 [0.47,0.78] & 0.649 & 0.067 \\
+\hline
+\end{tabular}
+\end{table}

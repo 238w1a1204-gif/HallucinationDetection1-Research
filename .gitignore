@@ -48,3 +48,4 @@ Thumbs.db
 # Python distribution
 *.egg-info/
 benchmark/cache/
+benchmark/results/*_features.json

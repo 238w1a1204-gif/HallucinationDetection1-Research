@@ -407,6 +407,142 @@
       0.4805
     ]
   },
+  "NLI-gated (+AV)": {
+    "n": 449,
+    "accuracy": 0.5434,
+    "macro_f1_populated": 0.5421,
+    "macro_f1_all4": 0.4066,
+    "per_class": {
+      "VERIFIED": {
+        "precision": 0.6701,
+        "recall": 0.4248,
+        "f1": 0.52,
+        "support": 153
+      },
+      "PARTIALLY_SUPPORTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "UNSUPPORTED": {
+        "precision": 0.4699,
+        "recall": 0.5811,
+        "f1": 0.5196,
+        "support": 148
+      },
+      "CONTRADICTED": {
+        "precision": 0.5503,
+        "recall": 0.6284,
+        "f1": 0.5868,
+        "support": 148
+      }
+    },
+    "confusion_matrix_gold_rows_pred_cols": [
+      [
+        65,
+        0,
+        62,
+        26
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        86,
+        50
+      ],
+      [
+        20,
+        0,
+        35,
+        93
+      ]
+    ],
+    "false_verified_rate": 0.1081,
+    "unsupported_called_verified_rate": 0.0811,
+    "accuracy_ci95": [
+      0.5011,
+      0.588
+    ],
+    "macro_f1_populated_ci95": [
+      0.4983,
+      0.5867
+    ]
+  },
+  "NLI-gated +Entity": {
+    "n": 449,
+    "accuracy": 0.5234,
+    "macro_f1_populated": 0.5256,
+    "macro_f1_all4": 0.3942,
+    "per_class": {
+      "VERIFIED": {
+        "precision": 0.6988,
+        "recall": 0.3791,
+        "f1": 0.4915,
+        "support": 153
+      },
+      "PARTIALLY_SUPPORTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "UNSUPPORTED": {
+        "precision": 0.4837,
+        "recall": 0.5,
+        "f1": 0.4917,
+        "support": 148
+      },
+      "CONTRADICTED": {
+        "precision": 0.5176,
+        "recall": 0.6959,
+        "f1": 0.5937,
+        "support": 148
+      }
+    },
+    "confusion_matrix_gold_rows_pred_cols": [
+      [
+        58,
+        7,
+        54,
+        34
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        9,
+        3,
+        74,
+        62
+      ],
+      [
+        16,
+        4,
+        25,
+        103
+      ]
+    ],
+    "false_verified_rate": 0.0845,
+    "unsupported_called_verified_rate": 0.0608,
+    "accuracy_ci95": [
+      0.4811,
+      0.5724
+    ],
+    "macro_f1_populated_ci95": [
+      0.4806,
+      0.5732
+    ]
+  },
   "Engine (determine_verdict)": {
     "n": 449,
     "accuracy": 0.412,
