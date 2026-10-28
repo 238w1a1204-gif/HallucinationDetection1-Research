@@ -60,6 +60,7 @@ class NLICache:
                 raise RuntimeError(f"NLI model unavailable ({lab}); check transformers/torch install.")
             self.data[k] = lab
         return self.data[k]
+
     def scores(self, claim, evidence):
         """Full NLI probability dict {entailment, neutral, contradiction} (cached)."""
         k = self._key(claim, evidence) + "|p"
@@ -73,6 +74,7 @@ class NLICache:
                 res = res[0]
             self.data[k] = {r["label"].lower(): float(r["score"]) for r in res}
         return self.data[k]
+
     def save(self):
         self.path.write_text(json.dumps(self.data))
 
@@ -99,7 +101,7 @@ def extract_features(row, nli: NLICache) -> dict:
     f = {"id": row.get("id"), "category": row.get("category", ""),
          "gold": row.get("gold_verdict"), "claim": claim, "n_evidence": len(scored),
          "max_sim": 0.0, "agree": 0, "ent_mismatch": False, "ent_presence": 0.0,
-         "rel_ok": False, "nli_primary": "none","nli_all": [], "nli_probs_all": [], "av" : "VALUE_UNVERIFIABLE",
+         "rel_ok": False, "nli_primary": "none", "nli_all": [], "nli_probs_all": [], "av": "VALUE_UNVERIFIABLE",
          "primary_quality": 0.0}
 
     if scored:

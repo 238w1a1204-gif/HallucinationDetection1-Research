@@ -1,4 +1,4 @@
-"""Component-toggled re-implementation of verdict_engine rules 0-7.
+"""Component-toggled re-implementation of verdict_engine rules 0-7, plus NLI-gated variants.
 
 `FULL` must agree with the real engine (run_ablation prints the agreement rate).
 """
@@ -51,6 +51,7 @@ def decide_nli_only(f):
         return C
     return U
 
+
 def decide_gated(f, use_entity=False, partial=0.55, **_):
     """NLI decides support/contradiction/abstention; answer-value and entity
     checks act as gates. Similarity is no longer a verdict threshold."""
@@ -69,6 +70,7 @@ def decide_gated(f, use_entity=False, partial=0.55, **_):
     if use_entity and f["ent_mismatch"] and f["max_sim"] >= partial:
         return C
     return U
+
 
 def predict(f, cfg, **kw):
     if cfg == "nli_only":
