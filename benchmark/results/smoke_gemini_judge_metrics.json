@@ -1,0 +1,65 @@
+{
+  "n": 20,
+  "accuracy": 0.75,
+  "macro_f1_populated": 0.8571,
+  "macro_f1_all4": 0.2143,
+  "per_class": {
+    "VERIFIED": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    "PARTIALLY_SUPPORTED": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    "UNSUPPORTED": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571,
+      "support": 20
+    },
+    "CONTRADICTED": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    }
+  },
+  "confusion_matrix_gold_rows_pred_cols": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      15,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "false_verified_rate": 0.15,
+  "unsupported_called_verified_rate": 0.15,
+  "accuracy_ci95": [
+    0.55,
+    0.9
+  ],
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Ablation on vc_test_bart (frozen evidence).}
+\label{tab:ablation_vc_test_bart}
+\small
+\begin{tabular}{lccc}
+\hline
+Configuration & Acc [95\\% CI] & Macro-F1 & False-VER \\
+\hline
+Sim+Agreement & 0.271 [0.23,0.31] & 0.300 & 0.161 \\
+NLI only & 0.572 [0.53,0.62] & 0.576 & 0.102 \\
+Sim+NLI & 0.397 [0.35,0.44] & 0.455 & 0.099 \\
+Sim+NLI+Entity & 0.410 [0.37,0.45] & 0.447 & 0.086 \\
+Sim+NLI+Entity+Rel & 0.412 [0.37,0.45] & 0.456 & 0.076 \\
+Full (+AnswerValue) & 0.412 [0.37,0.45] & 0.456 & 0.076 \\
+NLI-gated (+AV) & 0.572 [0.53,0.62] & 0.576 & 0.102 \\
+NLI-gated +Entity & 0.554 [0.51,0.59] & 0.565 & 0.076 \\
+Engine (determine\_verdict) & 0.412 [0.37,0.45] & 0.456 & 0.076 \\
+\hline
+\end{tabular}
+\end{table}

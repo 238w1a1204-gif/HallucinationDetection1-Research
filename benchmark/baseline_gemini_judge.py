@@ -61,7 +61,7 @@ def main():
         prompt = PROMPT.format(claim=row["claim"], evidence=ev)
         key = f"{st.GEMINI_MODEL}|{prompt}"
         if key not in cache:
-            for attempt in range(4):
+            for attempt in range(8):
                 try:
                     r = client.models.generate_content(
                         model=st.GEMINI_MODEL, contents=prompt,
@@ -69,12 +69,14 @@ def main():
                     cache[key] = (r.text or "").upper()
                     break
                 except Exception as exc:
+                    if "404" in str(exc) or "NOT_FOUND" in str(exc):
+                        raise SystemExit(f"Model unavailable, change GEMINI_MODEL in .env: {exc}")
                     print("retry", attempt, exc)
-                    time.sleep(2 ** attempt * 2)
+                    time.sleep(min(60, 3 * 2 ** attempt))
             else:
-                cache[key] = ""
+                print(f"giving up on row {i} (not cached; rerun to retry)")
             time.sleep(a.sleep)
-        m = LABEL_RE.search(cache[key])
+        m = LABEL_RE.search(cache.get(key, ""))
         gold.append(row["gold_verdict"])
         pred.append(m.group(0) if m else "UNSUPPORTED")
         if i % 20 == 0:
